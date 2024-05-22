@@ -1,0 +1,34 @@
+<div class="container">
+<h3>Listado de Heroes</h3>
+
+ <div
+ *ngIf="heroeBorrado else noBorroNada">
+  <h3 class="text-danger">Heroe Borrado <small>{{heroeBorrado}}</small></h3>
+ </div>
+
+
+  <ng-template #noBorroNada>
+
+    <h3 class="text-danger">no borro nada</h3>
+  </ng-template>
+<button
+  *ngIf="heroNames.length>0"
+  (click)="eliminarHeroe()"
+  class="btn btn-outline-danger"
+
+>Eliminar</button>
+
+
+<ul class="mt-2 list-group">
+<li
+  *ngFor="let name of heroNames"
+  class="jasmine-failure-list">
+{{name}}
+</li>
+
+
+
+
+
+</ul>
+</div>
