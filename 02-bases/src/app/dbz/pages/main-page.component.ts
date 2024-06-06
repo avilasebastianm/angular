@@ -7,5 +7,4 @@ import {Component, createComponent} from "@angular/core";
 
 })
 export class MainPageComponent{
-
 }
