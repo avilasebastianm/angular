@@ -23,23 +23,23 @@ function multiply (firstNumber:number, secondNumber?:number, base:number=2){
 
 
 // definimos la clase
-interface Character{
-    name:string;
-    hp:number;
-    showHp:()=>void;
-
-}
-const healCharacter = (character:Character, amount:number)=>{
-    character.hp += amount;
-}
-
-const aragon : Character ={
-    name : 'Aragon',
-    hp : 50,
-    showHp(){
-        console.log(`Puntos de vida ${this.hp}`)
-    }
-}
-
-healCharacter(aragon,20);
-aragon.showHp()
+// interface Character{
+//     name:string;
+//     hp:number;
+//     showHp:()=>void;
+//
+// }
+// const healCharacter = (character:Character, amount:number)=>{
+//     character.hp += amount;
+// }
+//
+// const aragon : Character ={
+//     name : 'Aragon',
+//     hp : 50,
+//     showHp(){
+//         console.log(`Puntos de vida ${this.hp}`)
+//     }
+// }
+//
+// healCharacter(aragon,20);
+// aragon.showHp()
