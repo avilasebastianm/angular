@@ -24,10 +24,8 @@ export class DbzService {
       power:10000
     }
   ];
-  onNewCharacter(character:Character){
-    const newCharacter:Character={id:uuid(),...character};//...character indica que tome todos las propiedades del objeto y lo guarde
-
-
+  addCharacter(character:Character){
+    const newCharacter:Character={id: uuid(),...character};//...character indica que tome todos las propiedades del objeto y lo guarde
     this.characters.push(newCharacter);
 
   }
