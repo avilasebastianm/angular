@@ -7,6 +7,7 @@
     <thead>
     <tr>
       <th>#</th>
+      <th>icon</th>
       <th>Bandera</th>
       <th>Nombre</th>
       <th>Capital</th>
@@ -19,7 +20,10 @@
 
       <td>{{ i + 1 }}</td>
       <td> {{ country.flag }}</td>
-      <td><img [src]="country.flags.svg" [alt]="country.name.common" width="25"></td>
+      <td><img [src]="country.flags.svg" [alt]="country.name.common"
+               width="25">
+      </td>
+      <th>{{ country.name.common }}</th>
       <td>{{ country.capital }}</td>
       <td>{{ country.population | number }}</td>
       <td>{{ country.capital }}</td>
