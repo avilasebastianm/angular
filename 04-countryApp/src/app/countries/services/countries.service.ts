@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, of} from "rxjs";
 import {Country} from "../interfaces/country";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,5 +39,12 @@ export class CountriesService {
       )
   }
 
+  public searchCountryByAlphaCode(code: string): Observable<Country []> {
+    const url: string = `${this.apiUrl}/alpha/${code}`;
+    return this.http.get<Country[]>(url)
+      .pipe(
+        catchError(error => of([]))
+      )
+  };
 
 }
