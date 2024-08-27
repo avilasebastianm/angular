@@ -1,0 +1,10 @@
+<input
+  type="text"
+  class="form-control"
+  [placeholder]="placeHolder"
+
+<!--  2 indicamos cuando salta el emiter en este caso cuando se presiona enter-->
+<!--emitValue es la funcion que mmandamos a llamar cuando apreta enter. se le envia el value de Txtinput-->
+  (keyup.enter)="emitValue(txtInput.value)"
+<!-- 3 definir un selector para poder identificar el componente-->
+  #txtInput>

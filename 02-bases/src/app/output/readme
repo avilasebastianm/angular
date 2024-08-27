@@ -1,0 +1,99 @@
+output es un mecanismo que permite a los componentes comunicarse
+con otros componentes o servicios. Es esencialmente una
+forma de emitir eventos desde un componente para que otros
+componentes puedan escucharlos y reaccionar en consecuencia.
+
+
+ejemplo básico:
+
+
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <button (click)="onClick()">Enviar evento</button>
+  `
+})
+export class ChildComponent {
+  @Output() clicked = new EventEmitter<void>();
+
+  onClick() {
+    this.clicked.emit();
+  }
+}
+
+
+En este ejemplo, el componente ChildComponent tiene una propiedad de salida llamada
+clicked. Esta propiedad es de tipo EventEmitter, lo que significa que puede emitir eventos.
+ Cuando se hace clic en el botón, el método onClick se ejecuta y emite el evento clicked.
+
+Ahora, en el componente padre, podemos escuchar este evento y realizar acciones en respuesta:
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <app-child (clicked)="onChildClicked()"></app-child>
+  `
+})
+export class ParentComponent {
+  onChildClicked() {
+    console.log('El evento del hijo ha sido recibido');
+  }
+}
+
+
+Aquí tienes un ejemplo básico:
+
+TypeScript
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <button (click)="onClick()">Enviar evento</button>
+  `
+})
+export class ChildComponent {
+  @Output() clicked = new EventEmitter<void>();
+
+  onClick() {
+    this.clicked.emit();
+  }
+}
+
+
+En este ejemplo, el componente ChildComponent tiene una propiedad de salida llamada
+clicked. Esta propiedad es de tipo EventEmitter, lo que significa que puede emitir eventos.
+Cuando se hace clic en el botón, el método onClick se ejecuta y emite el evento clicked.
+
+Ahora, en el componente padre, podemos escuchar este evento y realizar acciones en respuesta:
+
+TypeScript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <app-child (clicked)="onChildClicked()"></app-child>
+  `
+})
+export class ParentComponent {
+  onChildClicked() {
+    console.log('El evento del hijo ha sido recibido');
+  }
+}
+
+
+En este caso, el componente ParentComponent tiene una directiva de escucha (clicked)
+ en el selector del componente ChildComponent. Cuando se emite el evento clicked desde
+ el componente hijo, el método onChildClicked del componente padre se ejecuta.
+
+En resumen, el output en Angular es una forma poderosa de crear componentes modulares
+ y reutilizables que pueden comunicarse entre sí. Es especialmente útil para implementar
+  patrones de diseño como "pub-sub" o "observer".

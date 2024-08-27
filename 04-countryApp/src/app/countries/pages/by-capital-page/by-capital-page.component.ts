@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {CountriesService} from "../../services/countries.service";
+import {Country} from "../../interfaces/country";
 
 @Component({
   selector: 'app-by-capital-page',
@@ -6,10 +8,20 @@ import {Component} from '@angular/core';
   styles: ``
 })
 export class ByCapitalPageComponent {
+  public countries: Country[] = [];
+
+  // tenemos que inyectar el servicio desde el constructor
+  constructor(private countriesService: CountriesService) {
+  }
 
   public searchByCapital(term: string): void {
-    console.log({term});
-    console.log("desde by Capital")
+
+    this.countriesService.searchCapital(term)
+      .subscribe(// tenemos que colocar siempre el subscribe para poder hacer la consulta a la api
+        countries => {
+          this.countries = countries;
+        }
+      )
 
   }
 }

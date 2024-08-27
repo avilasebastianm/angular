@@ -1,0 +1,31 @@
+<div class="alert alert-warning text-center" *ngIf="countries.length == 0; else table">
+  no hay paises que mostrar
+</div>
+
+<ng-template #table>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Bandera</th>
+      <th>Nombre</th>
+      <th>Capital</th>
+      <th>Poblacion</th>
+      <th>Capital</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let country of countries; let i = index">
+
+      <td>{{ i + 1 }}</td>
+      <td> {{ country.flag }}</td>
+      <td><img [src]="country.flags.svg" [alt]="country.name.common" width="25"></td>
+      <td>{{ country.capital }}</td>
+      <td>{{ country.population | number }}</td>
+      <td>{{ country.capital }}</td>
+      <td><a href="">Ver mas...</a></td>
+    </tr>
+    </tbody>
+
+  </table>
+</ng-template>
