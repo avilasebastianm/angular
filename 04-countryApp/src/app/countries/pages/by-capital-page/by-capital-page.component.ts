@@ -14,12 +14,16 @@ export class ByCapitalPageComponent {
   constructor(private countriesService: CountriesService) {
   }
 
-  public searchByCapital(term: string): void {
+  public isLoading: boolean = false;
 
+  public searchByCapital(term: string): void {
+    this.isLoading = true;
     this.countriesService.searchCapital(term)
       .subscribe(// tenemos que colocar siempre el subscribe para poder hacer la consulta a la api
         countries => {
           this.countries = countries;
+          this.isLoading = false;
+
         }
       )
 
