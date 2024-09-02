@@ -5,7 +5,8 @@
     <!--    ShearchBox-->
     <shared-search-box
       [placeHolder]="'Buscar Por Pais'"
-      (onValue)="searchCountry($event)"
+      (onDeboucer)="searchCountry($event)"
+      [initialValue]="initialValue"
     ></shared-search-box>
   </div>
 </div>

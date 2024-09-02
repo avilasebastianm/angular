@@ -1,5 +1,14 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {debounceTime, Subject} from "rxjs";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input, OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+
+} from '@angular/core';
+import {debounceTime, Subject, Subscription} from "rxjs";
 
 
 @Component({
@@ -7,13 +16,15 @@ import {debounceTime, Subject} from "rxjs";
   templateUrl: './search-box.component.html',
 
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit, OnDestroy {
 
   private deboucer: Subject<string> = new Subject<string>;
-
+  private deoucerSubscription?: Subscription
 
   @Input()
   placeHolder: string = '';
+  @Input()
+  initialValue: string = '';
 
 
   @Output()
@@ -23,13 +34,17 @@ export class SearchBoxComponent implements OnInit {
   public onDeboucer = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.deboucer
+    this.deoucerSubscription = this.deboucer
       .pipe(
         debounceTime(300)
       )
       .subscribe(value => {
         this.onDeboucer.emit(value);
       })
+  }
+
+  ngOnDestroy() {// ciclo de vida de los componentes.
+    this.deoucerSubscription?.unsubscribe();
   }
 
   emitValue(value: string): void {

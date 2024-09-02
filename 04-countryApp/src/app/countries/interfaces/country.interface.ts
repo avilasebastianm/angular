@@ -14,7 +14,7 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Country {
+export interface CountryInterface {
   name: Name;
   tld: string[];
   cca2: string;
@@ -136,11 +136,11 @@ export interface PostalCode {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-  public static toWelcome(json: string): Country[] {
+  public static toWelcome(json: string): CountryInterface[] {
     return cast(JSON.parse(json), a(r("Welcome")));
   }
 
-  public static welcomeToJson(value: Country[]): string {
+  public static welcomeToJson(value: CountryInterface[]): string {
     return JSON.stringify(uncast(value, a(r("Welcome"))), null, 2);
   }
 }

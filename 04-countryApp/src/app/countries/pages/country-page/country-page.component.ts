@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CountriesService} from "../../services/countries.service";
 import {switchMap} from "rxjs";
-import {Country} from "../../interfaces/country";
+import {CountryInterface} from "../../interfaces/country.interface";
 
 @Component({
   selector: 'app-country-page',
@@ -12,7 +12,7 @@ import {Country} from "../../interfaces/country";
 // implementamos el oninit para asegurarnos que cargue toda la lagina antes de hacer algo
 export class CountryPageComponent implements OnInit {
 
-  public country?: Country;
+  public country?: CountryInterface;
 
   constructor(private activadedRoute: ActivatedRoute,
               private countriesService: CountriesService,

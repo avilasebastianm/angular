@@ -23,8 +23,8 @@
       <td><img [src]="country.flags.svg" [alt]="country.name.common"
                width="25">
       </td>
-      <th>{{ country.name.common }}</th>
-      <td>{{ country.capital }}</td>
+      <th style="max-width: 150px">{{ country.name.common }}</th>
+      <td style="max-width: 150px"> {{ country.capital }}</td>
       <td>{{ country.population | number }}</td>
       <td>{{ country.capital }}</td>
       <td><a [routerLink]="['/countries/by', country.ccn3]">Ver mas...</a></td>
