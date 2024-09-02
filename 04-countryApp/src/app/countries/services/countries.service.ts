@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {catchError, map, Observable, of} from "rxjs";
+import {catchError, delay, map, Observable, of} from "rxjs";
 import {Country} from "../interfaces/country";
 
 
@@ -14,29 +14,28 @@ export class CountriesService {
   constructor(private http: HttpClient) {
   }
 
+  private getCountriesRequest(url: string): Observable<Country[]> {
+    return this.http.get<Country[]>(url)
+      .pipe(
+        catchError(error => of([])),
+        delay(2000)
+      )
+  };
+
 // creamos el observable para que despues lo llame el componente donde lo va a a utilizar en este caso se uti9liza en el componente de la pag bycapital
   public searchCapital(term: String): Observable<Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
-    return this.http.get<Country[]>(url)
-      .pipe(
-        catchError(error => of([])) // con pipe lo que podemos hacer es capturar el error tambien en vez de cactchError hay map o tap
-      )
+    return this.getCountriesRequest(url);
   }
 
   public searchCountry(term: string): Observable<Country[]> {
     const url: string = `${this.apiUrl}/name/${term}`;
-    return this.http.get<Country[]>(url)
-      .pipe(
-        catchError(error => of([]))
-      )
+    return this.getCountriesRequest(url);
   };
 
   public searchRegion(term: string): Observable<Country[]> {
     const url: string = `${this.apiUrl}/region/${term}`;
-    return this.http.get<Country[]>(url)
-      .pipe(
-        catchError(error => of([]))
-      )
+    return this.getCountriesRequest(url);
   }
 
   public searchCountryByAlphaCode(code: string): Observable<Country | null> {
