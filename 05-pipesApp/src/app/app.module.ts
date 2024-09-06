@@ -15,6 +15,7 @@ import {SharedModule} from "./shared/shared.module";
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule
+
   ],
   providers: [
     provideClientHydration()
