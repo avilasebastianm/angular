@@ -7,7 +7,9 @@ import {PanelModule} from "primeng/panel";
 import {ToolbarModule} from "primeng/toolbar";
 import {SplitButtonModule} from "primeng/splitbutton";
 import {InputTextModule} from "primeng/inputtext";
-
+import {TableModule} from 'primeng/table';
+import {RatingModule} from 'primeng/rating';
+import {TagModule} from 'primeng/tag';
 
 @NgModule({
   exports: [
@@ -18,7 +20,10 @@ import {InputTextModule} from "primeng/inputtext";
     PanelModule,
     ToolbarModule,
     SplitButtonModule,
-    InputTextModule
+    InputTextModule,
+    TableModule,
+    RatingModule,
+    TagModule
 
 
   ]

@@ -1,6 +1,7 @@
-<p-panel header="Pipes Personalizados - Creado por {{'nosotros' | toggleCase}}" class="p-2">
+<p-panel header="Pipes Personalizados " class="p-2">
 
-  <p>Pipes Personalizados</p>
+  <p>Pipes Personalizados - creados por {{ 'nosotros' | toggleCase:isUpperCase }}
+  </p>
 
 
 </p-panel>
@@ -10,21 +11,73 @@
     <div class="flex-auto flex flex-wrap">
 
       <div class="col-12 md:col-6 lg:col-3">
-        <p-button label="ToggleCase" icon="pi pi-spin pi-cog"/>
+        <p-button label="ToggleCase"
+                  icon="pi pi-spin pi-cog"
+                  (onClick)="toggleUpperCase()"
+        />
       </div>
 
       <div class="col-12 md:col-6 lg:col-3">
-        <p-button label="Por Nombre" icon="pi  pi-spin  pi-amazon" styleClass="p-button-danger"/>
+        <p-button label="Por Nombre"
+                  icon="pi  pi-spin  pi-amazon"
+                  styleClass="p-button-danger"
+                  (onClick)="changeOrder('name')"
+        />
       </div>
 
       <div class=" col-12 md:col-6 lg:col-3">
-        <p-button label="Vuela" icon="pi pi-spin pi-wifi" styleClass="p-button-danger"/>
+        <p-button label="Vuela"
+                  icon="pi pi-spin pi-wifi"
+                  styleClass="p-button-danger"
+                  (onClick)="changeOrder('canFly')"
+        />
       </div>
 
       <div class=" col-12 md:col-6 lg:col-3">
-        <p-button label="Por Color" icon="pi pi-spin pi-sort" styleClass="p-button-success"/>
+        <p-button label="Por Color"
+                  icon="pi pi-spin pi-sort"
+                  styleClass="p-button-success"
+                  (onClick)="changeOrder('color')"
+        />
       </div>
 
     </div>
   </p-toolbar>
+</div>
+
+
+<div class="grid">
+  <div class="col mt-2">
+    <p-panel header="Heroes">
+      <p-table
+        [value]="heroes | shortBy:orderBy"
+        responsiveLayout="stack"
+        [breakpoint]="'960px'"
+        [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Puede Volar</th>
+            <th>Color</th>
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-hero>
+          <tr>
+            <td>
+              {{ hero.name }}
+            </td>
+            <td>
+              {{ hero.canFly | cantFly }}
+            </td>
+            <td>
+              {{ hero.color }}
+            </td>
+
+
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
 </div>
