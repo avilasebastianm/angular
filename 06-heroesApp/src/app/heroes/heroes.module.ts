@@ -6,7 +6,12 @@ import {LayoutPageComponent} from './pages/layout-page/layout-page.component';
 
 import {ListPageComponent} from './pages/list-page/list-page.component';
 import {NewPageComponent} from './pages/new-page/new-page.component';
-import {ShearchPageComponent} from './pages/search-page/shearch-page.component';
+import {SearchPageComponent} from './pages/search-page/search-page.component';
+import {MaterialModule} from "../material/material.module";
+import {CardComponent} from './component/card/card.component';
+import {HeroImagePipe} from './pipes/hero-image.pipe';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -16,11 +21,16 @@ import {ShearchPageComponent} from './pages/search-page/shearch-page.component';
 
     ListPageComponent,
     NewPageComponent,
-    ShearchPageComponent
+    SearchPageComponent,
+    CardComponent,
+    HeroImagePipe
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
+    HeroesRoutingModule,
+    MaterialModule,
+    
+    ReactiveFormsModule
   ]
 })
 export class HeroesModule {

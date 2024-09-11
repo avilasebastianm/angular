@@ -4,6 +4,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -12,9 +15,13 @@ import {SharedModule} from "./shared/shared.module";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule,
+        NgbModule
     ],
-    providers: [],
+    providers: [
+        provideAnimationsAsync()
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
