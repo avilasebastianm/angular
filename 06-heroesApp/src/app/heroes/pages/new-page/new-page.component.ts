@@ -11,7 +11,7 @@ export class NewPageComponent {
 
   //crear formularios reactivos
   public heroFormn = new FormGroup({
-    id: new FormControl(''),
+    id: new FormControl<string>(''),
     superhero: new FormControl('', {nonNullable: true}),
     alter_ego: new FormControl(''),
     first_appearance: new FormControl(''),
@@ -35,4 +35,5 @@ export class NewPageComponent {
 
 
 }
+
 
