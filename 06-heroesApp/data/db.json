@@ -21,7 +21,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": "https://imgs.search.brave.com/hJVuL7K0MpyxECHCRZa-ln818r2gbcdpVPD4V_KQNf4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5yZXZpc3RhZ3Eu/Y29tL3Bob3Rvcy82/MDVkY2Q0ZTdlNjY0/OGQ2NzRjOTE4Y2Qv/bWFzdGVyL3dfMzIw/LGNfbGltaXQvc3Vw/ZXIuanBlZw"
     },
     {
       "id": "dc-flash",
@@ -166,6 +167,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "3m81LWR",
+      "superhero": "Super super",
+      "alter_ego": "clack keng",
+      "first_appearance": "comic #1 ",
+      "characters": "Norris",
+      "publisher": "DC Comics",
+      "alt_img": "https://imgs.search.brave.com/-HP9sorGIWBeU2ORprt5gkA64Bdek1K_HaDa9pAHr14/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5yZXZpc3RhZ3Eu/Y29tL3Bob3Rvcy82/MDVkY2I4Y2MxOWZm/NDM4MjcwYzVkZTgv/bWFzdGVyL3dfMzIw/LGNfbGltaXQvY2Jj/NzU5ODVjMDkwZjI0/YmRiOTkyZjcwMDll/ZjcyM2EuanBn"
     }
   ]
 }

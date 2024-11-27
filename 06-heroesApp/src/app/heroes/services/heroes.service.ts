@@ -44,9 +44,16 @@ export class HeroesService {
     // Validar que el héroe tenga ID
     if (!hero.id) throw new Error('Hero id is required');
 
-    return this.http.patch<Hero>(`${this.baseUrl}/heroes${hero.id}`, hero);
+    return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
 
   }
+
+  //
+  // updateHero(hero: Hero): Observable<Hero> {
+  //   if (!hero.id) throw Error('Hero id is required');
+  //
+  //   return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
+  // }
 
   // DELETE request para eliminar un héroe por ID
   deleteHeroById(id: string): Observable<boolean> {
