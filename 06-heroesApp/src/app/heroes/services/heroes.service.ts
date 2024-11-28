@@ -57,7 +57,7 @@ export class HeroesService {
 
   // DELETE request para eliminar un héroe por ID
   deleteHeroById(id: string): Observable<boolean> {
-    return this.http.delete<Hero>(`${this.baseUrl}heroes/${id}`)
+    return this.http.delete(`${this.baseUrl}/heroes/${id}`)
       .pipe(
         // Si hay un error, devuelve false
         catchError(error => of(false)),

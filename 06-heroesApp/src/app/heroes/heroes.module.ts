@@ -12,6 +12,7 @@ import {CardComponent} from './component/card/card.component';
 import {HeroImagePipe} from './pipes/hero-image.pipe';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     NewPageComponent,
     SearchPageComponent,
     CardComponent,
-    HeroImagePipe
+    HeroImagePipe,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
